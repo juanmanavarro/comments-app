@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body ng-app="comments" ng-controller="CommentController">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron text-center">
+                <h1>Comment app</h1>
+                <p>E2E Testing AngularJS with Protractor</p>
+                <a href="" class="btn btn-primary btn-lg">See in Github</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <form class="form-inline">
+                    <input class="form-control" type="text" ng-model="comment">
+                    <button type="submit" class="btn btn-primary" ng-click="addComment()">Submit comment</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <ul>
+                    <li ng-repeat="comment in comments">
+                        <span class="comment">{{comment.comment}}</span>
+                        <button class="btn btn-primary btn-xs" ng-click="likeComment(comment.$id)">Like</button>
+                        <span class="likes">{{comment.likes}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+    <script type="text/javascript" src="/app/app.js"></script>
+    <script type="text/javascript" src="/app/commentController.js"></script>
+</body>
+</html>
